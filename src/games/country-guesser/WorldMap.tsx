@@ -76,15 +76,10 @@ export default function WorldMap({ highlightedId, revealedId, revealStatus }: Wo
           {features.map((f) => {
             const id = normalize(f.id as string | number | undefined);
             let fill = "var(--color-land)";
-            if (id === highlightedId) fill = "var(--color-amber)";
-            if (revealedId && id === revealedId) {
-              fill =
-                revealStatus === "correct"
-                  ? "var(--color-success)"
-                  : "var(--color-success)";
-            }
-            if (revealStatus === "wrong" && id === highlightedId) {
-              fill = "var(--color-danger)";
+            if (id === highlightedId) {
+              // Always show the correct country: amber while guessing,
+              // green once revealed (regardless of whether the user was right).
+              fill = revealStatus ? "var(--color-success)" : "var(--color-amber)";
             }
             const d = pathFor(f as any);
             if (!d) return null;
