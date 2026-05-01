@@ -4,7 +4,6 @@ import { geoNaturalEarth1, geoPath } from "d3-geo";
 import type { Feature, FeatureCollection, Geometry } from "geojson";
 // world-atlas v2 ships TopoJSON files
 // 110m is light & fast, perfect for quizzes
-// @ts-expect-error - JSON import
 import worldTopo from "world-atlas/countries-110m.json";
 
 interface CountryProps {
