@@ -62,9 +62,28 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --radius: 0.75rem;
+  /* Dark cartographic palette - applied as default */
+  --background: oklch(0.205 0.04 257);
+  --foreground: oklch(0.97 0.01 250);
+  --land: oklch(0.32 0.02 255);
+  --land-stroke: oklch(0.42 0.025 255);
+  --ocean: oklch(0.205 0.04 257);
+  --amber: oklch(0.78 0.16 75);
+  --amber-foreground: oklch(0.18 0.04 257);
+  --success: oklch(0.7 0.18 145);
+  --success-foreground: oklch(0.15 0.03 145);
+  --danger: oklch(0.62 0.22 27);
+  --danger-foreground: oklch(0.98 0.01 27);
+  --color-land: var(--land);
+  --color-land-stroke: var(--land-stroke);
+  --color-ocean: var(--ocean);
+  --color-amber: var(--amber);
+  --color-amber-foreground: var(--amber-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
