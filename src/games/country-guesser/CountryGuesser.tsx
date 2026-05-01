@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import WorldMap from "./WorldMap";
-import { countries, type Country } from "./countryData";
+import { countries, type Country } from "../shared/countryData";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
