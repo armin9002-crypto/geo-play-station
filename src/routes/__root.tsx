@@ -29,14 +29,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "GeoPlaystation" },
+      { name: "description", content: "Multiple Geography Games" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "GeoPlaystation" },
+      { property: "og:description", content: "Multiple Geography Games" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "GeoPlaystation" },
+      { name: "twitter:description", content: "Multiple Geography Games" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1c0baef3-f5cc-4a4f-807e-37b7d4e4fbcb/id-preview-a995b9f5--ec1d0be9-a771-4b8c-bc76-e9c4b91e6769.lovable.app-1777596593664.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1c0baef3-f5cc-4a4f-807e-37b7d4e4fbcb/id-preview-a995b9f5--ec1d0be9-a771-4b8c-bc76-e9c4b91e6769.lovable.app-1777596593664.png" },
     ],
     links: [
       {
