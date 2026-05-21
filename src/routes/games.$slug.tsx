@@ -27,9 +27,7 @@ export const Route = createFileRoute("/games/$slug")({
     <div className="flex min-h-screen items-center justify-center px-4 text-center">
       <div>
         <h1 className="text-2xl font-bold">Game not found</h1>
-        <p className="mt-2 text-muted-foreground">
-          This game isn't available yet.
-        </p>
+        <p className="mt-2 text-muted-foreground">This game isn't available yet.</p>
         <Link
           to="/"
           className="mt-6 inline-block rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
@@ -56,7 +54,7 @@ export const Route = createFileRoute("/games/$slug")({
 });
 
 function GamePage() {
-  const { slug } = Route.useLoaderData();
+  const slug = Route.useParams().slug;
   const game = getGame(slug);
   if (!game?.component) return null;
   const Component = game.component;

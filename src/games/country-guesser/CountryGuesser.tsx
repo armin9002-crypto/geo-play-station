@@ -27,6 +27,7 @@ export default function CountryGuesser() {
   const [streak, setStreak] = useState(0);
   const [bestStreak, setBestStreak] = useState(0);
   const [picked, setPicked] = useState<string | null>(null);
+  const [mapView, setMapView] = useState<"target" | "world">("target");
 
   const total = rounds.length;
   const round = rounds[index];
@@ -51,6 +52,7 @@ export default function CountryGuesser() {
 
   const handleNext = () => {
     setPicked(null);
+    setMapView("target");
     setIndex((i) => i + 1);
   };
 
@@ -61,6 +63,7 @@ export default function CountryGuesser() {
     setStreak(0);
     setBestStreak(0);
     setPicked(null);
+    setMapView("target");
   };
 
   const stats = useMemo(
@@ -89,10 +92,30 @@ export default function CountryGuesser() {
   return (
     <GameShell title="Country Guesser" subtitle="Identify highlighted countries" stats={stats}>
       <div className="rounded-2xl border border-border bg-card/40 p-2 shadow-xl shadow-black/30 backdrop-blur sm:p-3">
+        <div className="mb-2 flex flex-wrap items-center justify-end gap-2">
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={() => setMapView("world")}
+            disabled={mapView === "world"}
+          >
+            World view
+          </Button>
+          <Button
+            type="button"
+            size="sm"
+            onClick={() => setMapView("target")}
+            disabled={mapView === "target"}
+          >
+            Zoom to target
+          </Button>
+        </div>
         <WorldMap
           highlightedId={round.correct.id}
           revealedId={picked ? round.correct.id : null}
           revealStatus={picked ? (isCorrect ? "correct" : "wrong") : null}
+          viewMode={mapView}
         />
       </div>
 
@@ -105,13 +128,7 @@ export default function CountryGuesser() {
           const isAnswer = opt.id === round.correct.id;
           const isPickedOpt = picked === opt.id;
           const state =
-            picked === null
-              ? "idle"
-              : isAnswer
-              ? "correct"
-              : isPickedOpt
-              ? "wrong"
-              : "muted";
+            picked === null ? "idle" : isAnswer ? "correct" : isPickedOpt ? "wrong" : "muted";
           return (
             <ChoiceButton
               key={opt.id}
