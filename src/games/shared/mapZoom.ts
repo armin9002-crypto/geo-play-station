@@ -44,6 +44,36 @@ export function getCountryZoomTransform(bounds: ProjectedBounds, size: MapSize):
   };
 }
 
+export function fitBoundsToViewport(
+  bounds: ProjectedBounds,
+  size: MapSize,
+  options: {
+    maxZoom?: number;
+    minZoom?: number;
+    paddingRatio?: number;
+  } = {},
+): MapZoomTransform {
+  const [[x0, y0], [x1, y1]] = bounds;
+  const dx = Math.max(1, x1 - x0);
+  const dy = Math.max(1, y1 - y0);
+  const cx = (x0 + x1) / 2;
+  const cy = (y0 + y1) / 2;
+  const padding = Math.max(28, Math.min(size.w, size.h) * (options.paddingRatio ?? 0.14));
+  const maxZoom = options.maxZoom ?? 5;
+  const minZoom = options.minZoom ?? 1;
+  const k = clamp(
+    Math.min(size.w / (dx + padding * 2), size.h / (dy + padding * 2)),
+    minZoom,
+    maxZoom,
+  );
+
+  return {
+    k,
+    x: size.w / 2 - cx * k,
+    y: size.h / 2 - cy * k,
+  };
+}
+
 export function interpolateZoomTransform(
   from: MapZoomTransform,
   to: MapZoomTransform,

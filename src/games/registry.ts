@@ -4,6 +4,7 @@ import CapitalQuiz from "./capital-quiz/CapitalQuiz";
 import FlagMaster from "./flag-master/FlagMaster";
 import BorderBattle from "./border-battle/BorderBattle";
 import TimelineRush from "./timeline-rush/TimelineRush";
+import EmpireBuilder from "./empire-builder/EmpireBuilder";
 
 export type GameStatus = "available" | "coming-soon";
 
@@ -74,6 +75,17 @@ export const games: GameEntry[] = [
     difficulty: "Medium",
     status: "available",
     component: TimelineRush,
+  },
+  {
+    slug: "empire-builder",
+    name: "Empire Builder",
+    tagline: "Map historic reach",
+    description: "Select the modern countries touched by great empires and historical states.",
+    icon: "🏛️",
+    accent: "oklch(0.68 0.17 45)",
+    difficulty: "Hard",
+    status: "available",
+    component: EmpireBuilder,
   },
 ];
 
