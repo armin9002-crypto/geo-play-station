@@ -3,6 +3,7 @@ import CountryGuesser from "./country-guesser/CountryGuesser";
 import CapitalQuiz from "./capital-quiz/CapitalQuiz";
 import FlagMaster from "./flag-master/FlagMaster";
 import BorderBattle from "./border-battle/BorderBattle";
+import TimelineRush from "./timeline-rush/TimelineRush";
 
 export type GameStatus = "available" | "coming-soon";
 
@@ -62,6 +63,17 @@ export const games: GameEntry[] = [
     difficulty: "Hard",
     status: "available",
     component: BorderBattle,
+  },
+  {
+    slug: "timeline-rush",
+    name: "Timeline Rush",
+    tagline: "Which came first?",
+    description: "Compare world history events and choose the one that happened earlier.",
+    icon: "⏳",
+    accent: "oklch(0.72 0.16 110)",
+    difficulty: "Medium",
+    status: "available",
+    component: TimelineRush,
   },
 ];
 
